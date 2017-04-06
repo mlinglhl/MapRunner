@@ -17,13 +17,20 @@ import UIKit
 import CoreLocation
 
 class RunViewController: UIViewController, CLLocationManagerDelegate {
+    struct StopWatch {
+        var totalTime: Double = 0
+        var hour: Int = 0
+        var minute: Int = 0
+        var second: Int = 0
+        var milliSecond: Int = 0
+    }
+    
     @IBOutlet weak var timerLabel: UILabel!
     
     var startTime: Date!
-    
+    var stopWatch = StopWatch()
     var myLocations = [CLLocationCoordinate2D]()
     var timer: Timer!
-    var totalTime: TimeInterval = 0
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
@@ -32,6 +39,7 @@ class RunViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestAlwaysAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
+        timerLabel.font = timerLabel.font.monospacedDigitFont
         }
     
     @IBAction func timerLabelTapped(_ sender: UITapGestureRecognizer) {
@@ -44,15 +52,40 @@ class RunViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func updateTimerLabel() {
-        totalTime += timer.timeInterval
-        var timeLeft = totalTime
-        let hours = Int(timeLeft/3600)
-        timeLeft -= Double(hours) * 3600
-        let minutes = Int(timeLeft/60)
-        timeLeft -= Double(minutes) * 60
-        let seconds = timeLeft
-        
-        timerLabel.text = "\(hours):\(minutes):\(seconds)"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm:ss"
+        stopWatch.totalTime += timer.timeInterval
+        stopWatch.milliSecond += Int(timer.timeInterval * 100)
+        if stopWatch.milliSecond > 99 {
+            stopWatch.milliSecond = 0
+        }
+        stopWatch.hour = Int(stopWatch.totalTime)/3600
+        if stopWatch.hour < 1 {
+            dateFormatter.dateFormat = "mm:ss"
+        }
+        stopWatch.minute = Int(stopWatch.totalTime)/60%60
+        stopWatch.second = Int(stopWatch.totalTime)%60
+        var dateComponents = DateComponents()
+        dateComponents.hour = stopWatch.hour
+        dateComponents.minute = stopWatch.minute
+        dateComponents.second = stopWatch.second
+        dateComponents.calendar = Calendar.current
+        var milliSeconds = String(stopWatch.milliSecond)
+        if stopWatch.milliSecond < 10 {
+            milliSeconds = "0\(stopWatch.milliSecond)"
+        }
+        let date = dateFormatter.string(from: dateComponents.date!)
+        timerLabel.text = "\(date):\(milliSeconds)"
+        //        stopWatch.totalTime += timer.timeInterval
+//        stopWatch.milliSecond += timer.timeInterval
+//        if stopWatch.milliSecond > 0.99 {
+//            stopWatch.milliSecond = 0.0
+//        }
+//     //   var dateComponents = DateComponents()
+//        let stopWatch.hours = Int(stopWatch.totalTime)/3600
+//        let minutes = Int(stopWatch.totalTime)/60%60
+//        let seconds = Int(stopWatch.totalTime)%60
+        //timerLabel.text = //String(format: "%2i:%02i:%02i:%02d", hours, minutes, seconds, stopWatch.milliSecond)
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
