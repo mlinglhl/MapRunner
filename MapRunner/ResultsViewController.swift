@@ -17,9 +17,8 @@ class ResultsViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         mapView.delegate = self
         mapView.mapType = .standard
-//        mapView.showsUserLocation = true
-        let spanX = 0.007
-        let spanY = 0.007
+        let spanX = 0.004
+        let spanY = 0.004
         if locations.count > 0 {
             let region = MKCoordinateRegion(center: locations.last!, span: MKCoordinateSpanMake(spanX, spanY))
             mapView.setRegion(region, animated: false)

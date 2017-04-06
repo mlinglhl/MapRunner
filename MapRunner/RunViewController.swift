@@ -76,16 +76,6 @@ class RunViewController: UIViewController, CLLocationManagerDelegate {
         }
         let date = dateFormatter.string(from: dateComponents.date!)
         timerLabel.text = "\(date):\(milliSeconds)"
-        //        stopWatch.totalTime += timer.timeInterval
-//        stopWatch.milliSecond += timer.timeInterval
-//        if stopWatch.milliSecond > 0.99 {
-//            stopWatch.milliSecond = 0.0
-//        }
-//     //   var dateComponents = DateComponents()
-//        let stopWatch.hours = Int(stopWatch.totalTime)/3600
-//        let minutes = Int(stopWatch.totalTime)/60%60
-//        let seconds = Int(stopWatch.totalTime)%60
-        //timerLabel.text = //String(format: "%2i:%02i:%02i:%02d", hours, minutes, seconds, stopWatch.milliSecond)
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
