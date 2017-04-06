@@ -17,9 +17,13 @@ import UIKit
 import CoreLocation
 
 class RunViewController: UIViewController, CLLocationManagerDelegate {
+    @IBOutlet weak var timerLabel: UILabel!
+    
+    var startTime: Date!
     
     var myLocations = [CLLocationCoordinate2D]()
-    
+    var timer: Timer!
+    var totalTime: TimeInterval = 0
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
@@ -29,6 +33,27 @@ class RunViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
         }
+    
+    @IBAction func timerLabelTapped(_ sender: UITapGestureRecognizer) {
+        if startTime == nil {
+            startTime = Date()
+        }
+        if timer == nil {
+            timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(RunViewController.updateTimerLabel), userInfo: nil, repeats: true)
+        }
+    }
+    
+    func updateTimerLabel() {
+        totalTime += timer.timeInterval
+        var timeLeft = totalTime
+        let hours = Int(timeLeft/3600)
+        timeLeft -= Double(hours) * 3600
+        let minutes = Int(timeLeft/60)
+        timeLeft -= Double(minutes) * 60
+        let seconds = timeLeft
+        
+        timerLabel.text = "\(hours):\(minutes):\(seconds)"
+    }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         
