@@ -13,6 +13,8 @@
 		8966BE8D1E94160B006AE7F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8966BE8C1E94160B006AE7F5 /* Assets.xcassets */; };
 		8966BE901E94160B006AE7F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8966BE8E1E94160B006AE7F5 /* LaunchScreen.storyboard */; };
 		8966BE981E941AE9006AE7F5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966BE971E941AE9006AE7F5 /* HomeViewController.swift */; };
+		8966BE9A1E955E18006AE7F5 /* RunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966BE991E955E18006AE7F5 /* RunViewController.swift */; };
+		8966BE9C1E9560E0006AE7F5 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966BE9B1E9560E0006AE7F5 /* ResultsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		8966BE8F1E94160B006AE7F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8966BE911E94160B006AE7F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8966BE971E941AE9006AE7F5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8966BE991E955E18006AE7F5 /* RunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunViewController.swift; sourceTree = "<group>"; };
+		8966BE9B1E9560E0006AE7F5 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +62,9 @@
 			children = (
 				8966BE821E94160B006AE7F5 /* AppDelegate.swift */,
 				8966BE971E941AE9006AE7F5 /* HomeViewController.swift */,
+				8966BE991E955E18006AE7F5 /* RunViewController.swift */,
 				8966BE861E94160B006AE7F5 /* Main.storyboard */,
+				8966BE9B1E9560E0006AE7F5 /* ResultsViewController.swift */,
 				8966BE8C1E94160B006AE7F5 /* Assets.xcassets */,
 				8966BE8E1E94160B006AE7F5 /* LaunchScreen.storyboard */,
 				8966BE911E94160B006AE7F5 /* Info.plist */,
@@ -141,6 +147,8 @@
 			files = (
 				8966BE831E94160B006AE7F5 /* AppDelegate.swift in Sources */,
 				8966BE8B1E94160B006AE7F5 /* MapRunner.xcdatamodeld in Sources */,
+				8966BE9A1E955E18006AE7F5 /* RunViewController.swift in Sources */,
+				8966BE9C1E9560E0006AE7F5 /* ResultsViewController.swift in Sources */,
 				8966BE981E941AE9006AE7F5 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
