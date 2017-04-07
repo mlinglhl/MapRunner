@@ -11,7 +11,7 @@ import MapKit
 
 class ResultsViewController: UIViewController, MKMapViewDelegate {
     var locations = [CLLocationCoordinate2D]()
-    
+
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -16,8 +16,9 @@
 		8966BE9C1E9560E0006AE7F5 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966BE9B1E9560E0006AE7F5 /* ResultsViewController.swift */; };
 		8966BE9F1E96A778006AE7F5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966BE9E1E96A778006AE7F5 /* Extensions.swift */; };
 		8966BEA11E96B20D006AE7F5 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966BEA01E96B20D006AE7F5 /* PageViewController.swift */; };
-		8966BEA31E96B7AC006AE7F5 /* SetUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966BEA21E96B7AC006AE7F5 /* SetUpViewController.swift */; };
 		8966BEA51E96C45B006AE7F5 /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966BEA41E96C45B006AE7F5 /* TimeManager.swift */; };
+		8966BEA71E96CA99006AE7F5 /* SetUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966BEA61E96CA99006AE7F5 /* SetUpViewController.swift */; };
+		8966BEA91E97E9D8006AE7F5 /* StepManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966BEA81E97E9D8006AE7F5 /* StepManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,8 +33,9 @@
 		8966BE9B1E9560E0006AE7F5 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		8966BE9E1E96A778006AE7F5 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8966BEA01E96B20D006AE7F5 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
-		8966BEA21E96B7AC006AE7F5 /* SetUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetUpViewController.swift; sourceTree = "<group>"; };
 		8966BEA41E96C45B006AE7F5 /* TimeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
+		8966BEA61E96CA99006AE7F5 /* SetUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetUpViewController.swift; sourceTree = "<group>"; };
+		8966BEA81E97E9D8006AE7F5 /* StepManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,9 +70,10 @@
 			children = (
 				8966BE821E94160B006AE7F5 /* AppDelegate.swift */,
 				8966BE991E955E18006AE7F5 /* RunViewController.swift */,
+				8966BEA81E97E9D8006AE7F5 /* StepManager.swift */,
 				8966BEA41E96C45B006AE7F5 /* TimeManager.swift */,
 				8966BEA01E96B20D006AE7F5 /* PageViewController.swift */,
-				8966BEA21E96B7AC006AE7F5 /* SetUpViewController.swift */,
+				8966BEA61E96CA99006AE7F5 /* SetUpViewController.swift */,
 				8966BE861E94160B006AE7F5 /* Main.storyboard */,
 				8966BE9E1E96A778006AE7F5 /* Extensions.swift */,
 				8966BE9B1E9560E0006AE7F5 /* ResultsViewController.swift */,
@@ -156,9 +159,10 @@
 			files = (
 				8966BE9F1E96A778006AE7F5 /* Extensions.swift in Sources */,
 				8966BE831E94160B006AE7F5 /* AppDelegate.swift in Sources */,
-				8966BEA31E96B7AC006AE7F5 /* SetUpViewController.swift in Sources */,
 				8966BE8B1E94160B006AE7F5 /* MapRunner.xcdatamodeld in Sources */,
 				8966BEA11E96B20D006AE7F5 /* PageViewController.swift in Sources */,
+				8966BEA71E96CA99006AE7F5 /* SetUpViewController.swift in Sources */,
+				8966BEA91E97E9D8006AE7F5 /* StepManager.swift in Sources */,
 				8966BE9A1E955E18006AE7F5 /* RunViewController.swift in Sources */,
 				8966BEA51E96C45B006AE7F5 /* TimeManager.swift in Sources */,
 				8966BE9C1E9560E0006AE7F5 /* ResultsViewController.swift in Sources */,

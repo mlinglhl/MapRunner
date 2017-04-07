@@ -15,6 +15,7 @@
 
 import UIKit
 import CoreLocation
+import CoreMotion
 
 class RunViewController: UIViewController, CLLocationManagerDelegate {
     struct StopWatch {
@@ -25,13 +26,14 @@ class RunViewController: UIViewController, CLLocationManagerDelegate {
         var milliSecond: Int = 0
     }
     
+    let pedometer = CMPedometer()
     @IBOutlet weak var timerLabel: UILabel!
-    
-    var startTime: Date!
-    var stopWatch = StopWatch()
+    let timeManager = TimeManager.sharedInstance
+    let stepManager = StepManager.sharedInstance
     var myLocations = [CLLocationCoordinate2D]()
     var timer: Timer!
     let locationManager = CLLocationManager()
+    let activityManager = CMMotionActivityManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,39 +45,17 @@ class RunViewController: UIViewController, CLLocationManagerDelegate {
         }
     
     @IBAction func timerLabelTapped(_ sender: UITapGestureRecognizer) {
-        if startTime == nil {
-            startTime = Date()
-        }
+        stepManager.togglePedometer()
         if timer == nil {
             timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(RunViewController.updateTimerLabel), userInfo: nil, repeats: true)
+            return
         }
+        timer.invalidate()
+        timer = nil
     }
     
     func updateTimerLabel() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm:ss"
-        stopWatch.totalTime += timer.timeInterval
-        stopWatch.milliSecond += Int(timer.timeInterval * 100)
-        if stopWatch.milliSecond > 99 {
-            stopWatch.milliSecond = 0
-        }
-        stopWatch.hour = Int(stopWatch.totalTime)/3600
-        if stopWatch.hour < 1 {
-            dateFormatter.dateFormat = "mm:ss"
-        }
-        stopWatch.minute = Int(stopWatch.totalTime)/60%60
-        stopWatch.second = Int(stopWatch.totalTime)%60
-        var dateComponents = DateComponents()
-        dateComponents.hour = stopWatch.hour
-        dateComponents.minute = stopWatch.minute
-        dateComponents.second = stopWatch.second
-        dateComponents.calendar = Calendar.current
-        var milliSeconds = String(stopWatch.milliSecond)
-        if stopWatch.milliSecond < 10 {
-            milliSeconds = "0\(stopWatch.milliSecond)"
-        }
-        let date = dateFormatter.string(from: dateComponents.date!)
-        timerLabel.text = "\(date):\(milliSeconds)"
+        timerLabel.text = timeManager.getTimeString(timeInterval: timer.timeInterval)
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
