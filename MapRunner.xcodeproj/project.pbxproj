@@ -19,6 +19,7 @@
 		8966BEA51E96C45B006AE7F5 /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966BEA41E96C45B006AE7F5 /* TimeManager.swift */; };
 		8966BEA71E96CA99006AE7F5 /* SetUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966BEA61E96CA99006AE7F5 /* SetUpViewController.swift */; };
 		8966BEA91E97E9D8006AE7F5 /* StepManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966BEA81E97E9D8006AE7F5 /* StepManager.swift */; };
+		8966BEAB1E9838C7006AE7F5 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966BEAA1E9838C7006AE7F5 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		8966BEA41E96C45B006AE7F5 /* TimeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
 		8966BEA61E96CA99006AE7F5 /* SetUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetUpViewController.swift; sourceTree = "<group>"; };
 		8966BEA81E97E9D8006AE7F5 /* StepManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepManager.swift; sourceTree = "<group>"; };
+		8966BEAA1E9838C7006AE7F5 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				8966BE821E94160B006AE7F5 /* AppDelegate.swift */,
+				8966BEAA1E9838C7006AE7F5 /* DataManager.swift */,
 				8966BE991E955E18006AE7F5 /* RunViewController.swift */,
 				8966BEA81E97E9D8006AE7F5 /* StepManager.swift */,
 				8966BEA41E96C45B006AE7F5 /* TimeManager.swift */,
@@ -117,7 +120,13 @@
 				TargetAttributes = {
 					8966BE7E1E94160B006AE7F5 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 728VJ25T5V;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -158,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8966BE9F1E96A778006AE7F5 /* Extensions.swift in Sources */,
+				8966BEAB1E9838C7006AE7F5 /* DataManager.swift in Sources */,
 				8966BE831E94160B006AE7F5 /* AppDelegate.swift in Sources */,
 				8966BE8B1E94160B006AE7F5 /* MapRunner.xcdatamodeld in Sources */,
 				8966BEA11E96B20D006AE7F5 /* PageViewController.swift in Sources */,
@@ -288,6 +298,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 728VJ25T5V;
 				INFOPLIST_FILE = MapRunner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mling.MapRunner;
@@ -300,6 +311,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 728VJ25T5V;
 				INFOPLIST_FILE = MapRunner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mling.MapRunner;

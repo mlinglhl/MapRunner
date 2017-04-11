@@ -9,9 +9,6 @@
 import UIKit
 
 class TimeManager: NSObject {
-    static let sharedInstance = TimeManager()
-    private override init() {}
-    
     struct StopWatch {
         var totalTime: Double = 0
         var hour: Int = 0

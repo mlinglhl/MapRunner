@@ -10,9 +10,7 @@ import UIKit
 import CoreMotion
 
 class StepManager: NSObject {
-    static let sharedInstance = StepManager()
-    private override init() {}
-
+    
     var pedometer: CMPedometer!
     var stepCount = 0
     

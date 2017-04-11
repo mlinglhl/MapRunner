@@ -28,8 +28,8 @@ class RunViewController: UIViewController, CLLocationManagerDelegate {
     
     let pedometer = CMPedometer()
     @IBOutlet weak var timerLabel: UILabel!
-    let timeManager = TimeManager.sharedInstance
-    let stepManager = StepManager.sharedInstance
+    let timeManager = TimeManager()
+    let stepManager = StepManager()
     var myLocations = [CLLocationCoordinate2D]()
     var timer: Timer!
     let locationManager = CLLocationManager()
@@ -41,6 +41,7 @@ class RunViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestAlwaysAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
+        locationManager.allowsBackgroundLocationUpdates = true
         timerLabel.font = timerLabel.font.monospacedDigitFont
         }
     
