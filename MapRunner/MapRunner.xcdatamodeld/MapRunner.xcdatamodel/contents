@@ -7,10 +7,11 @@
     </entity>
     <entity name="Run" representedClassName="Run" syncable="YES" codeGenerationType="class">
         <attribute name="steps" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="locations" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Location" inverseName="run" inverseEntity="Location" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Run" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="Run" positionX="-63" positionY="-18" width="128" height="90"/>
         <element name="Location" positionX="-54" positionY="-9" width="128" height="90"/>
     </elements>
 </model>

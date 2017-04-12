@@ -26,6 +26,7 @@ class RunViewController: UIViewController, CLLocationManagerDelegate {
         var milliSecond: Int = 0
     }
     
+    let dataManager = DataManager.sharedInstance
     let pedometer = CMPedometer()
     @IBOutlet weak var timerLabel: UILabel!
     let timeManager = TimeManager()
@@ -71,6 +72,10 @@ class RunViewController: UIViewController, CLLocationManagerDelegate {
         if locations.count > 0 {
             let location = locations.last!
             myLocations.append(location.coordinate)
+            let locationObject = dataManager.generateLocation() as! Location
+            locationObject.latitude = location.coordinate.latitude
+            locationObject.longitude = location.coordinate.longitude
+            dataManager.saveContext()
         }
     }
     

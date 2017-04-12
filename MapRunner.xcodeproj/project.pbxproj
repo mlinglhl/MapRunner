@@ -38,6 +38,10 @@
 		8966BEA61E96CA99006AE7F5 /* SetUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetUpViewController.swift; sourceTree = "<group>"; };
 		8966BEA81E97E9D8006AE7F5 /* StepManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepManager.swift; sourceTree = "<group>"; };
 		8966BEAA1E9838C7006AE7F5 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		8966BEAC1E9D8CE2006AE7F5 /* Run+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Run+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8966BEAD1E9D8CE2006AE7F5 /* Run+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Run+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8966BEAE1E9D8CE2006AE7F5 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8966BEAF1E9D8CE2006AE7F5 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,10 @@
 		8966BE761E94160B006AE7F5 = {
 			isa = PBXGroup;
 			children = (
+				8966BEAC1E9D8CE2006AE7F5 /* Run+CoreDataClass.swift */,
+				8966BEAD1E9D8CE2006AE7F5 /* Run+CoreDataProperties.swift */,
+				8966BEAE1E9D8CE2006AE7F5 /* Location+CoreDataClass.swift */,
+				8966BEAF1E9D8CE2006AE7F5 /* Location+CoreDataProperties.swift */,
 				8966BE811E94160B006AE7F5 /* MapRunner */,
 				8966BE801E94160B006AE7F5 /* Products */,
 			);
