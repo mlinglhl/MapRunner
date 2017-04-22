@@ -26,6 +26,7 @@ class RunViewController: UIViewController, CLLocationManagerDelegate {
         var milliSecond: Int = 0
     }
     
+    var run: Run!
     let dataManager = DataManager.sharedInstance
     let pedometer = CMPedometer()
     @IBOutlet weak var timerLabel: UILabel!
@@ -41,12 +42,17 @@ class RunViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.startUpdatingLocation()
         locationManager.allowsBackgroundLocationUpdates = true
         timerLabel.font = timerLabel.font.monospacedDigitFont
+        if run == nil {
+            run = dataManager.generateRun() as! Run
         }
+    }
     
     @IBAction func timerLabelTapped(_ sender: UITapGestureRecognizer) {
+        if run == nil {
+            locationManager.startUpdatingLocation()
+        }
         stepManager.togglePedometer()
         if timer == nil {
             timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(RunViewController.updateTimerLabel), userInfo: nil, repeats: true)
@@ -57,7 +63,8 @@ class RunViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func updateTimerLabel() {
-        timerLabel.text = timeManager.getTimeString(timeInterval: timer.timeInterval)
+        timeManager.updateTime(timeInterval: timer.timeInterval)
+        timerLabel.text = timeManager.getTimeString()
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -75,8 +82,15 @@ class RunViewController: UIViewController, CLLocationManagerDelegate {
             let locationObject = dataManager.generateLocation() as! Location
             locationObject.latitude = location.coordinate.latitude
             locationObject.longitude = location.coordinate.longitude
+            run.addToLocations(locationObject)
             dataManager.saveContext()
         }
+    }
+    
+    @IBAction func panOnView(_ sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: view)
+        timeManager.updateTime(timeInterval: TimeInterval(-translation.y))
+        timerLabel.text = timeManager.getTimeString()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

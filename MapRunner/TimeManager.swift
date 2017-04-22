@@ -19,20 +19,23 @@ class TimeManager: NSObject {
 
     var stopWatch = StopWatch()
 
-    func getTimeString(timeInterval: TimeInterval) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm:ss"
+    func updateTime(timeInterval: TimeInterval) {
         stopWatch.totalTime += timeInterval
         stopWatch.milliSecond += Int(timeInterval * 100)
-        if stopWatch.milliSecond > 99 {
+        if stopWatch.milliSecond > 99 || stopWatch.milliSecond < 0 {
             stopWatch.milliSecond = 0
         }
         stopWatch.hour = Int(stopWatch.totalTime)/3600
+        stopWatch.minute = Int(stopWatch.totalTime)/60%60
+        stopWatch.second = Int(stopWatch.totalTime)%60
+    }
+    
+    func getTimeString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm:ss"
         if stopWatch.hour < 1 {
             dateFormatter.dateFormat = "mm:ss"
         }
-        stopWatch.minute = Int(stopWatch.totalTime)/60%60
-        stopWatch.second = Int(stopWatch.totalTime)%60
         var dateComponents = DateComponents()
         dateComponents.hour = stopWatch.hour
         dateComponents.minute = stopWatch.minute
