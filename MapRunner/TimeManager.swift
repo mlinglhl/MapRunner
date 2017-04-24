@@ -16,15 +16,25 @@ class TimeManager: NSObject {
         var second: Int = 0
         var milliSecond: Int = 0
     }
-
+    
     var stopWatch = StopWatch()
-
+    
     func updateTime(timeInterval: TimeInterval) {
+        if stopWatch.totalTime + timeInterval < 0 {
+            stopWatch.totalTime = 0
+            stopWatch.milliSecond = 0
+            setTimeValues()
+            return
+        }
         stopWatch.totalTime += timeInterval
         stopWatch.milliSecond += Int(timeInterval * 100)
         if stopWatch.milliSecond > 99 || stopWatch.milliSecond < 0 {
             stopWatch.milliSecond = 0
         }
+        setTimeValues()
+    }
+    
+    func setTimeValues() {
         stopWatch.hour = Int(stopWatch.totalTime)/3600
         stopWatch.minute = Int(stopWatch.totalTime)/60%60
         stopWatch.second = Int(stopWatch.totalTime)%60
