@@ -18,13 +18,6 @@ import CoreLocation
 import CoreMotion
 
 class RunViewController: UIViewController, CLLocationManagerDelegate {
-    struct StopWatch {
-        var totalTime: Double = 0
-        var hour: Int = 0
-        var minute: Int = 0
-        var second: Int = 0
-        var milliSecond: Int = 0
-    }
     
     var run: Run!
     let dataManager = DataManager.sharedInstance
@@ -50,16 +43,19 @@ class RunViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func timerLabelTapped(_ sender: UITapGestureRecognizer) {
-        if run == nil {
+        if CLLocationManager.locationServicesEnabled() {
+            if timer != nil {
+                timer.invalidate()
+                timer = nil
+                locationManager.stopUpdatingLocation()
+                return
+            }
             locationManager.startUpdatingLocation()
         }
+        
         stepManager.togglePedometer()
-        if timer == nil {
-            timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(RunViewController.updateTimerLabel), userInfo: nil, repeats: true)
-            return
-        }
-        timer.invalidate()
-        timer = nil
+        
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(RunViewController.updateTimerLabel), userInfo: nil, repeats: true)
     }
     
     func updateTimerLabel() {
