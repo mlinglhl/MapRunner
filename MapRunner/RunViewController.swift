@@ -42,7 +42,7 @@ class RunViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    @IBAction func timerLabelTapped(_ sender: UITapGestureRecognizer) {
+    @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
         if CLLocationManager.locationServicesEnabled() {
             if timer != nil {
                 timer.invalidate()
