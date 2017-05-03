@@ -20,6 +20,7 @@
 		8966BEA71E96CA99006AE7F5 /* SetUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966BEA61E96CA99006AE7F5 /* SetUpViewController.swift */; };
 		8966BEA91E97E9D8006AE7F5 /* StepManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966BEA81E97E9D8006AE7F5 /* StepManager.swift */; };
 		8966BEAB1E9838C7006AE7F5 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966BEAA1E9838C7006AE7F5 /* DataManager.swift */; };
+		89C4C3B41EB900350054D5EF /* RunManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C4C3B31EB900350054D5EF /* RunManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,10 +39,13 @@
 		8966BEA61E96CA99006AE7F5 /* SetUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetUpViewController.swift; sourceTree = "<group>"; };
 		8966BEA81E97E9D8006AE7F5 /* StepManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepManager.swift; sourceTree = "<group>"; };
 		8966BEAA1E9838C7006AE7F5 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		8966BEAC1E9D8CE2006AE7F5 /* Run+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Run+CoreDataClass.swift"; sourceTree = "<group>"; };
-		8966BEAD1E9D8CE2006AE7F5 /* Run+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Run+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		8966BEAE1E9D8CE2006AE7F5 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
-		8966BEAF1E9D8CE2006AE7F5 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		89C4C3B31EB900350054D5EF /* RunManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunManager.swift; sourceTree = "<group>"; };
+		89C4C3C11EBA46140054D5EF /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
+		89C4C3C21EBA46140054D5EF /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		89C4C3C31EBA46140054D5EF /* Run+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Run+CoreDataClass.swift"; sourceTree = "<group>"; };
+		89C4C3C41EBA46140054D5EF /* Run+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Run+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		89C4C3CD1EBA48920054D5EF /* Session+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Session+CoreDataClass.swift"; sourceTree = "<group>"; };
+		89C4C3CE1EBA48920054D5EF /* Session+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Session+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +62,12 @@
 		8966BE761E94160B006AE7F5 = {
 			isa = PBXGroup;
 			children = (
-				8966BEAC1E9D8CE2006AE7F5 /* Run+CoreDataClass.swift */,
-				8966BEAD1E9D8CE2006AE7F5 /* Run+CoreDataProperties.swift */,
-				8966BEAE1E9D8CE2006AE7F5 /* Location+CoreDataClass.swift */,
-				8966BEAF1E9D8CE2006AE7F5 /* Location+CoreDataProperties.swift */,
+				89C4C3CD1EBA48920054D5EF /* Session+CoreDataClass.swift */,
+				89C4C3CE1EBA48920054D5EF /* Session+CoreDataProperties.swift */,
+				89C4C3C11EBA46140054D5EF /* Location+CoreDataClass.swift */,
+				89C4C3C21EBA46140054D5EF /* Location+CoreDataProperties.swift */,
+				89C4C3C31EBA46140054D5EF /* Run+CoreDataClass.swift */,
+				89C4C3C41EBA46140054D5EF /* Run+CoreDataProperties.swift */,
 				8966BE811E94160B006AE7F5 /* MapRunner */,
 				8966BE801E94160B006AE7F5 /* Products */,
 			);
@@ -81,6 +87,7 @@
 				8966BE821E94160B006AE7F5 /* AppDelegate.swift */,
 				8966BEAA1E9838C7006AE7F5 /* DataManager.swift */,
 				8966BE991E955E18006AE7F5 /* RunViewController.swift */,
+				89C4C3B31EB900350054D5EF /* RunManager.swift */,
 				8966BEA81E97E9D8006AE7F5 /* StepManager.swift */,
 				8966BEA41E96C45B006AE7F5 /* TimeManager.swift */,
 				8966BEA01E96B20D006AE7F5 /* PageViewController.swift */,
@@ -183,6 +190,7 @@
 				8966BEA91E97E9D8006AE7F5 /* StepManager.swift in Sources */,
 				8966BE9A1E955E18006AE7F5 /* RunViewController.swift in Sources */,
 				8966BEA51E96C45B006AE7F5 /* TimeManager.swift in Sources */,
+				89C4C3B41EB900350054D5EF /* RunManager.swift in Sources */,
 				8966BE9C1E9560E0006AE7F5 /* ResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

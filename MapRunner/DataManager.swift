@@ -12,12 +12,6 @@ import CoreData
 
 class DataManager: NSObject {
     
-    struct Session {
-        var steps = 0
-        var locations = [CLLocationCoordinate2D]()
-    }
-
-    var session = Session()
     static let sharedInstance = DataManager()
     private override init() {}
     
@@ -37,8 +31,8 @@ class DataManager: NSObject {
             do {
                 try context.save()
             } catch {
-//                let nserror = error as NSError
-//                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
     }
@@ -47,14 +41,18 @@ class DataManager: NSObject {
         return persistentContainer.viewContext
     }
     
-    func generateLocation() -> NSManagedObject {
-        let location = NSEntityDescription.insertNewObject(forEntityName: "Location", into: getContext())
+    func generateLocation() -> Location {
+        let location = NSEntityDescription.insertNewObject(forEntityName: "Location", into: getContext()) as! Location
         return location
     }
 
-    func generateRun() -> NSManagedObject {
-        let run = NSEntityDescription.insertNewObject(forEntityName: "Run", into: getContext())
+    func generateRun() -> Run {
+        let run = NSEntityDescription.insertNewObject(forEntityName: "Run", into: getContext()) as! Run
         return run
     }
     
+    func generateSession() -> Session {
+        let session = NSEntityDescription.insertNewObject(forEntityName: "Session", into: getContext()) as! Session
+        return session
+    }
 }

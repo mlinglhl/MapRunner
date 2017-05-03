@@ -17,14 +17,12 @@ import UIKit
 import CoreLocation
 import CoreMotion
 
-class RunViewController: UIViewController, CLLocationManagerDelegate {
+class RunViewController: UIViewController {
     
-    var run: Run!
-    let dataManager = DataManager.sharedInstance
+    let runManager = RunManager.sharedInstance
     let pedometer = CMPedometer()
     @IBOutlet weak var timerLabel: UILabel!
     let timeManager = TimeManager()
-    let stepManager = StepManager()
     var myLocations = [CLLocationCoordinate2D]()
     var timer: Timer!
     let locationManager = CLLocationManager()
@@ -32,55 +30,33 @@ class RunViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.allowsBackgroundLocationUpdates = true
+        runManager.startSession()
         timerLabel.font = timerLabel.font.monospacedDigitFont
-        if run == nil {
-            run = dataManager.generateRun() as! Run
-        }
     }
     
     @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
-        if CLLocationManager.locationServicesEnabled() {
-            if timer != nil {
-                timer.invalidate()
-                timer = nil
-                locationManager.stopUpdatingLocation()
-                return
-            }
-            locationManager.startUpdatingLocation()
+        if timer != nil {
+            stopTimer()
+            return
         }
-        
-        stepManager.togglePedometer()
-        
+        startTimer()
+    }
+    
+    func stopTimer() {
+        runManager.stopRun()
+
+        timer.invalidate()
+        timer = nil
+    }
+    
+    func startTimer() {
+        runManager.startRun()
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(RunViewController.updateTimerLabel), userInfo: nil, repeats: true)
     }
     
     func updateTimerLabel() {
         timeManager.updateTime(timeInterval: timer.timeInterval)
         timerLabel.text = timeManager.getTimeString()
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if locations.count > 0 {
-            let location = locations.last!
-            myLocations.append(location.coordinate)
-            let locationObject = dataManager.generateLocation() as! Location
-            locationObject.latitude = location.coordinate.latitude
-            locationObject.longitude = location.coordinate.longitude
-            run.addToLocations(locationObject)
-            dataManager.saveContext()
-        }
     }
     
     @IBAction func panOnView(_ sender: UIPanGestureRecognizer) {

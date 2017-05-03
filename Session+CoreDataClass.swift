@@ -1,5 +1,5 @@
 //
-//  Run+CoreDataClass.swift
+//  Session+CoreDataClass.swift
 //  MapRunner
 //
 //  Created by Minhung Ling on 2017-05-03.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc(Run)
-public class Run: NSManagedObject {
+@objc(Session)
+public class Session: NSManagedObject {
 
 }

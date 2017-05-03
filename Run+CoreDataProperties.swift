@@ -2,9 +2,8 @@
 //  Run+CoreDataProperties.swift
 //  MapRunner
 //
-//  Created by Minhung Ling on 2017-04-11.
+//  Created by Minhung Ling on 2017-05-03.
 //  Copyright © 2017 Minhung Ling. All rights reserved.
-//  This file was automatically generated and should not be edited.
 //
 
 import Foundation
@@ -14,12 +13,13 @@ import CoreData
 extension Run {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Run> {
-        return NSFetchRequest<Run>(entityName: "Run");
+        return NSFetchRequest<Run>(entityName: "Run")
     }
 
     @NSManaged public var steps: Int16
     @NSManaged public var time: Int16
     @NSManaged public var locations: NSOrderedSet?
+    @NSManaged public var session: Session?
 
 }
 
