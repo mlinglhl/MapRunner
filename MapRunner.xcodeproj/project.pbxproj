@@ -18,7 +18,6 @@
 		8966BEA11E96B20D006AE7F5 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966BEA01E96B20D006AE7F5 /* PageViewController.swift */; };
 		8966BEA51E96C45B006AE7F5 /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966BEA41E96C45B006AE7F5 /* TimeManager.swift */; };
 		8966BEA71E96CA99006AE7F5 /* SetUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966BEA61E96CA99006AE7F5 /* SetUpViewController.swift */; };
-		8966BEA91E97E9D8006AE7F5 /* StepManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966BEA81E97E9D8006AE7F5 /* StepManager.swift */; };
 		8966BEAB1E9838C7006AE7F5 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966BEAA1E9838C7006AE7F5 /* DataManager.swift */; };
 		89C4C3B41EB900350054D5EF /* RunManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C4C3B31EB900350054D5EF /* RunManager.swift */; };
 /* End PBXBuildFile section */
@@ -37,7 +36,6 @@
 		8966BEA01E96B20D006AE7F5 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		8966BEA41E96C45B006AE7F5 /* TimeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
 		8966BEA61E96CA99006AE7F5 /* SetUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetUpViewController.swift; sourceTree = "<group>"; };
-		8966BEA81E97E9D8006AE7F5 /* StepManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepManager.swift; sourceTree = "<group>"; };
 		8966BEAA1E9838C7006AE7F5 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		89C4C3B31EB900350054D5EF /* RunManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunManager.swift; sourceTree = "<group>"; };
 		89C4C3C11EBA46140054D5EF /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -88,7 +86,6 @@
 				8966BEAA1E9838C7006AE7F5 /* DataManager.swift */,
 				8966BE991E955E18006AE7F5 /* RunViewController.swift */,
 				89C4C3B31EB900350054D5EF /* RunManager.swift */,
-				8966BEA81E97E9D8006AE7F5 /* StepManager.swift */,
 				8966BEA41E96C45B006AE7F5 /* TimeManager.swift */,
 				8966BEA01E96B20D006AE7F5 /* PageViewController.swift */,
 				8966BEA61E96CA99006AE7F5 /* SetUpViewController.swift */,
@@ -187,7 +184,6 @@
 				8966BE8B1E94160B006AE7F5 /* MapRunner.xcdatamodeld in Sources */,
 				8966BEA11E96B20D006AE7F5 /* PageViewController.swift in Sources */,
 				8966BEA71E96CA99006AE7F5 /* SetUpViewController.swift in Sources */,
-				8966BEA91E97E9D8006AE7F5 /* StepManager.swift in Sources */,
 				8966BE9A1E955E18006AE7F5 /* RunViewController.swift in Sources */,
 				8966BEA51E96C45B006AE7F5 /* TimeManager.swift in Sources */,
 				89C4C3B41EB900350054D5EF /* RunManager.swift in Sources */,

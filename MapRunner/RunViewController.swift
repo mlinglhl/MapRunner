@@ -34,6 +34,13 @@ class RunViewController: UIViewController {
         timerLabel.font = timerLabel.font.monospacedDigitFont
     }
     
+    @IBAction func panOnView(_ sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: view)
+        timeManager.updateTime(timeInterval: TimeInterval(-translation.y*2))
+        timerLabel.text = timeManager.getTimeString()
+        sender.setTranslation(CGPoint(x: 0, y: 0), in: view)
+    }
+    
     @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
         if timer != nil {
             stopTimer()
@@ -57,13 +64,6 @@ class RunViewController: UIViewController {
     func updateTimerLabel() {
         timeManager.updateTime(timeInterval: timer.timeInterval)
         timerLabel.text = timeManager.getTimeString()
-    }
-    
-    @IBAction func panOnView(_ sender: UIPanGestureRecognizer) {
-        let translation = sender.translation(in: view)
-        timeManager.updateTime(timeInterval: TimeInterval(-translation.y*2))
-        timerLabel.text = timeManager.getTimeString()
-        sender.setTranslation(CGPoint(x: 0, y: 0), in: view)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
