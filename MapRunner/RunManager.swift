@@ -14,13 +14,13 @@ class RunManager: NSObject, CLLocationManagerDelegate {
     
     static let sharedInstance = RunManager()
     private override init() {}
-
+    
     var session: Session! = nil
     var run: Run! = nil
     let locationManager = CLLocationManager()
     let dataManager = DataManager.sharedInstance
     var pedometer: CMPedometer!
-
+    
     func startSession() {
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
@@ -47,8 +47,10 @@ class RunManager: NSObject, CLLocationManagerDelegate {
     
     //MARK: Pedometer methods
     func startPedometer() {
-        if pedometer == nil {
-            pedometer = CMPedometer()
+        if CMPedometer.isStepCountingAvailable() {
+            if pedometer == nil {
+                pedometer = CMPedometer()
+            }
             pedometer.startUpdates(from: Date(), withHandler: { (pedometerData, error) in
                 if let pedData = pedometerData{
                     self.session.steps = Int16(pedData.numberOfSteps)
@@ -63,7 +65,9 @@ class RunManager: NSObject, CLLocationManagerDelegate {
     }
     
     func stopPedometer() {
-        pedometer.stopUpdates()
+        if CMPedometer.isStepCountingAvailable() {
+            pedometer.stopUpdates()
+        }
     }
     
     //MARK: CLLocationManagerDelegate methods
@@ -75,13 +79,12 @@ class RunManager: NSObject, CLLocationManagerDelegate {
         
     }
     
-
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if locations.count > 0 {
             addLocation(locations.last!)
         }
     }
-
+    
     func addLocation(_ location: CLLocation) {
         let locationObject = dataManager.generateLocation()
         locationObject.latitude = location.coordinate.latitude
