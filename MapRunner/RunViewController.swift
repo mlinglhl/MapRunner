@@ -17,8 +17,9 @@ import UIKit
 import CoreLocation
 import CoreMotion
 
-class RunViewController: UIViewController {
+class RunViewController: UIViewController, UIGestureRecognizerDelegate {
     
+    @IBOutlet var panGestureRecognizer: UIPanGestureRecognizer!
     let runManager = RunManager.sharedInstance
     let pedometer = CMPedometer()
     @IBOutlet weak var timerLabel: UILabel!
@@ -30,6 +31,7 @@ class RunViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        panGestureRecognizer.delegate = self
         runManager.startSession()
         timerLabel.font = timerLabel.font.monospacedDigitFont
     }
@@ -39,6 +41,17 @@ class RunViewController: UIViewController {
         timeManager.updateTime(timeInterval: TimeInterval(-translation.y*2))
         timerLabel.text = timeManager.getTimeString()
         sender.setTranslation(CGPoint(x: 0, y: 0), in: view)
+    }
+    
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if gestureRecognizer is UIPanGestureRecognizer {
+            let pgr = gestureRecognizer as! UIPanGestureRecognizer
+            let translation = pgr.translation(in: view)
+            if abs(translation.x) > abs(translation.y) {
+                return false
+            }
+        }
+        return true
     }
     
     @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {

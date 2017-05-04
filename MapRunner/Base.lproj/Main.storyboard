@@ -106,6 +106,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="panGestureRecognizer" destination="3Dh-Kf-Eej" id="Hyx-P7-sUC"/>
                         <outlet property="timerLabel" destination="3lg-6m-N03" id="5bM-Ff-Ygp"/>
                     </connections>
                 </viewController>
