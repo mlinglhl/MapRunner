@@ -28,9 +28,17 @@ class TimeManager: NSObject {
         }
         stopWatch.totalTime += timeInterval
         stopWatch.milliSecond += Int(timeInterval * 100)
-        if stopWatch.milliSecond > 99 || stopWatch.milliSecond < 0 {
+
+        if stopWatch.milliSecond < 0 {
+            stopWatch.milliSecond = 99
+        }
+
+        if stopWatch.milliSecond > 99 || abs(timeInterval) > 1 {
             stopWatch.milliSecond = 0
         }
+
+        print ("\(timeInterval)")
+        
         setTimeValues()
     }
     
