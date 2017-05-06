@@ -36,12 +36,8 @@ class RunViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @IBAction func panOnView(_ sender: UIPanGestureRecognizer) {
-        if runManager.run != nil {
-            return
-        }
-
         let translation = sender.translation(in: view)
-        runManager.updateTime(timeInterval: TimeInterval(-translation.y/2))
+        runManager.panUpdateTime(timeInterval: TimeInterval(-translation.y/2))
         timerLabel.text = runManager.getTimeString()
         sender.setTranslation(CGPoint(x: 0, y: 0), in: view)
     }

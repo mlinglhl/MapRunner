@@ -22,7 +22,14 @@ class RunManager: NSObject, CLLocationManagerDelegate {
         var second: Int = 0
         var milliSecond: Int = 0
     }
+
+    struct RunSettings {
+        var countDownMode = false
+        var outdoorRun = false
+        var trackLocation = false
+    }
     
+    var settings = RunSettings()
     var stopWatch = StopWatch()
     var session: Session! = nil
     var run: Run! = nil
@@ -106,26 +113,44 @@ class RunManager: NSObject, CLLocationManagerDelegate {
 
 //MARK: Time Methods
 extension RunManager {
+    func panUpdateTime(timeInterval: TimeInterval) {
+        if run != nil {
+            return
+        }
+
+        var time = timeInterval
+
+        if settings.countDownMode {
+            time = -time
+        }
+
+        updateTime(timeInterval: time)
+    }
+    
     func updateTime(timeInterval: TimeInterval) {
-        if stopWatch.totalTime + timeInterval < 0 {
+        var time = timeInterval
+        
+        if settings.countDownMode {
+            time = -time
+        }
+
+        if stopWatch.totalTime + time < 0 {
             stopWatch.totalTime = 0
             stopWatch.milliSecond = 0
+            stopRun()
             setTimeValues()
             return
         }
-        stopWatch.totalTime += timeInterval
-        stopWatch.milliSecond += Int(timeInterval * 100)
+        stopWatch.totalTime += time
+        stopWatch.milliSecond += Int(time * 100)
         
         if stopWatch.milliSecond < 0 {
             stopWatch.milliSecond = 99
         }
         
-        if stopWatch.milliSecond > 99 || abs(timeInterval) > 1 {
+        if stopWatch.milliSecond > 99 || abs(time) > 1 {
             stopWatch.milliSecond = 0
         }
-        
-        print ("\(timeInterval)")
-        
         setTimeValues()
     }
     
@@ -153,4 +178,9 @@ extension RunManager {
         let date = dateFormatter.string(from: dateComponents.date!)
         return "\(date):\(milliSeconds)"
     }
+}
+
+//MARK: Settings extension
+extension RunManager {
+    
 }

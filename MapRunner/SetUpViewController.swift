@@ -12,6 +12,7 @@ class SetUpViewController: UITableViewController {
     @IBOutlet weak var countDownModeSwitch: UISwitch!
     @IBOutlet weak var outdoorRunSwitch: UISwitch!
     @IBOutlet weak var trackLocationSwitch: UISwitch!
+    var runManager = RunManager.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,5 +20,17 @@ class SetUpViewController: UITableViewController {
         countDownModeSwitch.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
         outdoorRunSwitch.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
         trackLocationSwitch.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        countDownModeSwitch.isOn = runManager.settings.countDownMode
+        outdoorRunSwitch.isOn = runManager.settings.outdoorRun
+        trackLocationSwitch.isOn = runManager.settings.trackLocation
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        runManager.settings.countDownMode = countDownModeSwitch.isOn
+        runManager.settings.outdoorRun = outdoorRunSwitch.isOn
+        runManager.settings.trackLocation = trackLocationSwitch.isOn
     }
 }
