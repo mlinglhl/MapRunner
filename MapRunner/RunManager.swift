@@ -15,6 +15,15 @@ class RunManager: NSObject, CLLocationManagerDelegate {
     static let sharedInstance = RunManager()
     private override init() {}
     
+    struct StopWatch {
+        var totalTime: Double = 0
+        var hour: Int = 0
+        var minute: Int = 0
+        var second: Int = 0
+        var milliSecond: Int = 0
+    }
+    
+    var stopWatch = StopWatch()
     var session: Session! = nil
     var run: Run! = nil
     let locationManager = CLLocationManager()
@@ -42,6 +51,7 @@ class RunManager: NSObject, CLLocationManagerDelegate {
         if CLLocationManager.locationServicesEnabled() {
             locationManager.stopUpdatingLocation()
         }
+        run = nil
         stopPedometer()
     }
     
@@ -91,5 +101,56 @@ class RunManager: NSObject, CLLocationManagerDelegate {
         locationObject.longitude = location.coordinate.longitude
         run.addToLocations(locationObject)
         dataManager.saveContext()
+    }
+}
+
+//MARK: Time Methods
+extension RunManager {
+    func updateTime(timeInterval: TimeInterval) {
+        if stopWatch.totalTime + timeInterval < 0 {
+            stopWatch.totalTime = 0
+            stopWatch.milliSecond = 0
+            setTimeValues()
+            return
+        }
+        stopWatch.totalTime += timeInterval
+        stopWatch.milliSecond += Int(timeInterval * 100)
+        
+        if stopWatch.milliSecond < 0 {
+            stopWatch.milliSecond = 99
+        }
+        
+        if stopWatch.milliSecond > 99 || abs(timeInterval) > 1 {
+            stopWatch.milliSecond = 0
+        }
+        
+        print ("\(timeInterval)")
+        
+        setTimeValues()
+    }
+    
+    func setTimeValues() {
+        stopWatch.hour = Int(stopWatch.totalTime)/3600
+        stopWatch.minute = Int(stopWatch.totalTime)/60%60
+        stopWatch.second = Int(stopWatch.totalTime)%60
+    }
+    
+    func getTimeString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm:ss"
+        if stopWatch.hour < 1 {
+            dateFormatter.dateFormat = "mm:ss"
+        }
+        var dateComponents = DateComponents()
+        dateComponents.hour = stopWatch.hour
+        dateComponents.minute = stopWatch.minute
+        dateComponents.second = stopWatch.second
+        dateComponents.calendar = Calendar.current
+        var milliSeconds = String(stopWatch.milliSecond)
+        if stopWatch.milliSecond < 10 {
+            milliSeconds = "0\(stopWatch.milliSecond)"
+        }
+        let date = dateFormatter.string(from: dateComponents.date!)
+        return "\(date):\(milliSeconds)"
     }
 }

@@ -23,7 +23,6 @@ class RunViewController: UIViewController, UIGestureRecognizerDelegate {
     let runManager = RunManager.sharedInstance
     let pedometer = CMPedometer()
     @IBOutlet weak var timerLabel: UILabel!
-    let timeManager = TimeManager()
     var myLocations = [CLLocationCoordinate2D]()
     var timer: Timer!
     let locationManager = CLLocationManager()
@@ -37,9 +36,13 @@ class RunViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @IBAction func panOnView(_ sender: UIPanGestureRecognizer) {
+        if runManager.run != nil {
+            return
+        }
+
         let translation = sender.translation(in: view)
-        timeManager.updateTime(timeInterval: TimeInterval(-translation.y/2))
-        timerLabel.text = timeManager.getTimeString()
+        runManager.updateTime(timeInterval: TimeInterval(-translation.y/2))
+        timerLabel.text = runManager.getTimeString()
         sender.setTranslation(CGPoint(x: 0, y: 0), in: view)
     }
     
@@ -75,8 +78,8 @@ class RunViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func updateTimerLabel() {
-        timeManager.updateTime(timeInterval: timer.timeInterval)
-        timerLabel.text = timeManager.getTimeString()
+        runManager.updateTime(timeInterval: timer.timeInterval)
+        timerLabel.text = runManager.getTimeString()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
