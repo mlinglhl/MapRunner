@@ -59,7 +59,6 @@ class RunViewController: UIViewController, UIGestureRecognizerDelegate {
             stopTimer()
             return
         }
-        runManager.startSession()
         startTimer()
     }
     
@@ -76,7 +75,7 @@ class RunViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func updateTimerLabel() {
-        runManager.updateTime(timeInterval: timer.timeInterval)
+        runManager.addTime(timeInterval: timer.timeInterval)
         timerLabel.text = runManager.getTimeString()
     }
     

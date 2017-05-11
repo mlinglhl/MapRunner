@@ -37,7 +37,7 @@ class RunManager: NSObject, CLLocationManagerDelegate {
     let dataManager = DataManager.sharedInstance
     var pedometer: CMPedometer!
     
-    func startSession() {
+    func startRun() {
         if session == nil {
             locationManager.delegate = self
             locationManager.requestAlwaysAuthorization()
@@ -45,12 +45,11 @@ class RunManager: NSObject, CLLocationManagerDelegate {
             locationManager.allowsBackgroundLocationUpdates = true
             session = dataManager.generateSession()
         }
-    }
-    
-    func startRun() {
+        
         if CLLocationManager.locationServicesEnabled() {
             locationManager.startUpdatingLocation()
         }
+        
         run = dataManager.generateRun()
         session.addToRuns(run)
         startPedometer()
@@ -105,55 +104,64 @@ class RunManager: NSObject, CLLocationManagerDelegate {
     }
     
     func addLocation(_ location: CLLocation) {
-        let locationObject = dataManager.generateLocation()
-        locationObject.latitude = location.coordinate.latitude
-        locationObject.longitude = location.coordinate.longitude
-        run.addToLocations(locationObject)
-        dataManager.saveContext()
+        if run != nil {
+            let locationObject = dataManager.generateLocation()
+            locationObject.latitude = location.coordinate.latitude
+            locationObject.longitude = location.coordinate.longitude
+            run.addToLocations(locationObject)
+            dataManager.saveContext()
+        }
     }
 }
 
 //MARK: Time Methods
 extension RunManager {
     func panUpdateTime(timeInterval: TimeInterval) {
+        
+        //Ensures changing time is only available during an active session in countdown mode
         if session != nil {
             if !settings.countDownMode {
                 return
             }
         }
         
+        settings.countDownMode = true
+        
+        updateTime(timeInterval: timeInterval)
+        
+    }
+    
+    func addTime(timeInterval: TimeInterval) {
         var time = timeInterval
         
-        //Countdown mode reverses this value so it needs to be reversed when panning
         if settings.countDownMode {
             time = -time
         }
         
         updateTime(timeInterval: time)
+        
+        //        if stopWatch.totalTime == 0 {
+        //            settings.countDownMode = false
+        //        }
     }
     
     func updateTime(timeInterval: TimeInterval) {
-        var time = timeInterval
         
-        if settings.countDownMode {
-            time = -time
-        }
-        
-        if stopWatch.totalTime + time < 0 {
+        if stopWatch.totalTime + timeInterval < 0 {
             stopWatch.totalTime = 0
             stopWatch.milliSecond = 0
             stopRun()
             setTimeValues()
             return
         }
-        stopWatch.totalTime += time
-        stopWatch.milliSecond += Int(time * 100)
+        stopWatch.totalTime += timeInterval
+        stopWatch.milliSecond += Int(timeInterval * 100)
         
         if stopWatch.milliSecond < 0 {
             stopWatch.milliSecond = 99
         }
         
-        if stopWatch.milliSecond > 99 || abs(time) > 1 {
+        if stopWatch.milliSecond > 99 || abs(timeInterval) > 1 {
             stopWatch.milliSecond = 0
         }
         setTimeValues()
