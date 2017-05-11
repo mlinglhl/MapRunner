@@ -31,15 +31,16 @@ class RunViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         panGestureRecognizer.delegate = self
-        runManager.startSession()
         timerLabel.font = timerLabel.font.monospacedDigitFont
     }
     
     @IBAction func panOnView(_ sender: UIPanGestureRecognizer) {
-        let translation = sender.translation(in: view)
-        runManager.panUpdateTime(timeInterval: TimeInterval(-translation.y/2))
-        timerLabel.text = runManager.getTimeString()
-        sender.setTranslation(CGPoint(x: 0, y: 0), in: view)
+        if timer == nil {
+            let translation = sender.translation(in: view)
+            runManager.panUpdateTime(timeInterval: TimeInterval(-translation.y/2))
+            timerLabel.text = runManager.getTimeString()
+            sender.setTranslation(CGPoint(x: 0, y: 0), in: view)
+        }
     }
     
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -58,12 +59,13 @@ class RunViewController: UIViewController, UIGestureRecognizerDelegate {
             stopTimer()
             return
         }
+        runManager.startSession()
         startTimer()
     }
     
     func stopTimer() {
         runManager.stopRun()
-
+        
         timer.invalidate()
         timer = nil
     }

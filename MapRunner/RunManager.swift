@@ -22,7 +22,7 @@ class RunManager: NSObject, CLLocationManagerDelegate {
         var second: Int = 0
         var milliSecond: Int = 0
     }
-
+    
     struct RunSettings {
         var countDownMode = false
         var outdoorRun = false
@@ -38,11 +38,13 @@ class RunManager: NSObject, CLLocationManagerDelegate {
     var pedometer: CMPedometer!
     
     func startSession() {
-        locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.allowsBackgroundLocationUpdates = true
-        session = dataManager.generateSession()
+        if session == nil {
+            locationManager.delegate = self
+            locationManager.requestAlwaysAuthorization()
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.allowsBackgroundLocationUpdates = true
+            session = dataManager.generateSession()
+        }
     }
     
     func startRun() {
@@ -114,16 +116,19 @@ class RunManager: NSObject, CLLocationManagerDelegate {
 //MARK: Time Methods
 extension RunManager {
     func panUpdateTime(timeInterval: TimeInterval) {
-        if run != nil {
-            return
+        if session != nil {
+            if !settings.countDownMode {
+                return
+            }
         }
-
+        
         var time = timeInterval
-
+        
+        //Countdown mode reverses this value so it needs to be reversed when panning
         if settings.countDownMode {
             time = -time
         }
-
+        
         updateTime(timeInterval: time)
     }
     
@@ -133,7 +138,7 @@ extension RunManager {
         if settings.countDownMode {
             time = -time
         }
-
+        
         if stopWatch.totalTime + time < 0 {
             stopWatch.totalTime = 0
             stopWatch.milliSecond = 0
@@ -178,9 +183,4 @@ extension RunManager {
         let date = dateFormatter.string(from: dateComponents.date!)
         return "\(date):\(milliSeconds)"
     }
-}
-
-//MARK: Settings extension
-extension RunManager {
-    
 }
