@@ -81,7 +81,7 @@ class RunManager: NSObject, CLLocationManagerDelegate {
             })
         }
     }
-    
+     
     func stopPedometer() {
         if CMPedometer.isStepCountingAvailable() {
             pedometer.stopUpdates()
