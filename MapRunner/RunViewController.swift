@@ -17,7 +17,7 @@ import UIKit
 import CoreLocation
 import CoreMotion
 
-class RunViewController: UIViewController, UIGestureRecognizerDelegate {
+class RunViewController: UIViewController, UIGestureRecognizerDelegate, StopTimerProtocol {
     
     @IBOutlet var panGestureRecognizer: UIPanGestureRecognizer!
     let runManager = RunManager.sharedInstance
@@ -31,6 +31,7 @@ class RunViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         panGestureRecognizer.delegate = self
+        runManager.delegate = self
         timerLabel.font = timerLabel.font.monospacedDigitFont
     }
     
@@ -59,17 +60,16 @@ class RunViewController: UIViewController, UIGestureRecognizerDelegate {
             stopTimer()
             return
         }
-        startTimer()
+        start()
     }
     
     func stopTimer() {
         runManager.stopRun()
-        
         timer.invalidate()
         timer = nil
     }
     
-    func startTimer() {
+    func start() {
         runManager.startRun()
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(RunViewController.updateTimerLabel), userInfo: nil, repeats: true)
     }

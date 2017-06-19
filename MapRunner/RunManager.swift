@@ -29,6 +29,7 @@ class RunManager: NSObject, CLLocationManagerDelegate {
         var trackLocation = false
     }
     
+    var delegate: StopTimerProtocol!
     var settings = RunSettings()
     var stopWatch = StopWatch()
     var session: Session! = nil
@@ -141,21 +142,12 @@ extension RunManager {
         }
         
         updateTime(timeInterval: time)
-        
-        //        if stopWatch.totalTime == 0 {
-        //            settings.countDownMode = false
-        //        }
+        if stopWatch.totalTime == 0 {
+            delegate.stopTimer()
+        }
     }
     
     func updateTime(timeInterval: TimeInterval) {
-        
-        if stopWatch.totalTime + timeInterval < 0 {
-            stopWatch.totalTime = 0
-            stopWatch.milliSecond = 0
-            stopRun()
-            setTimeValues()
-            return
-        }
         stopWatch.totalTime += timeInterval
         stopWatch.milliSecond += Int(timeInterval * 100)
         
@@ -166,6 +158,12 @@ extension RunManager {
         if stopWatch.milliSecond > 99 || abs(timeInterval) > 1 {
             stopWatch.milliSecond = 0
         }
+        
+        if stopWatch.totalTime < 0 {
+            stopWatch.totalTime = 0
+            stopWatch.milliSecond = 0
+        }
+        
         setTimeValues()
     }
     

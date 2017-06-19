@@ -18,6 +18,7 @@
 		8966BEA11E96B20D006AE7F5 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966BEA01E96B20D006AE7F5 /* PageViewController.swift */; };
 		8966BEA71E96CA99006AE7F5 /* SetUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966BEA61E96CA99006AE7F5 /* SetUpViewController.swift */; };
 		8966BEAB1E9838C7006AE7F5 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966BEAA1E9838C7006AE7F5 /* DataManager.swift */; };
+		8997568E1EF769110070E690 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8997568D1EF769110070E690 /* Protocols.swift */; };
 		89C4C3B41EB900350054D5EF /* RunManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C4C3B31EB900350054D5EF /* RunManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		8966BEA01E96B20D006AE7F5 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		8966BEA61E96CA99006AE7F5 /* SetUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetUpViewController.swift; sourceTree = "<group>"; };
 		8966BEAA1E9838C7006AE7F5 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		8997568D1EF769110070E690 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		89C4C3B31EB900350054D5EF /* RunManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunManager.swift; sourceTree = "<group>"; };
 		89C4C3C11EBA46140054D5EF /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
 		89C4C3C21EBA46140054D5EF /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				8966BE821E94160B006AE7F5 /* AppDelegate.swift */,
 				8966BEAA1E9838C7006AE7F5 /* DataManager.swift */,
 				8966BE991E955E18006AE7F5 /* RunViewController.swift */,
+				8997568D1EF769110070E690 /* Protocols.swift */,
 				89C4C3B31EB900350054D5EF /* RunManager.swift */,
 				8966BEA01E96B20D006AE7F5 /* PageViewController.swift */,
 				8966BEA61E96CA99006AE7F5 /* SetUpViewController.swift */,
@@ -180,6 +183,7 @@
 				8966BE831E94160B006AE7F5 /* AppDelegate.swift in Sources */,
 				8966BE8B1E94160B006AE7F5 /* MapRunner.xcdatamodeld in Sources */,
 				8966BEA11E96B20D006AE7F5 /* PageViewController.swift in Sources */,
+				8997568E1EF769110070E690 /* Protocols.swift in Sources */,
 				8966BEA71E96CA99006AE7F5 /* SetUpViewController.swift in Sources */,
 				8966BE9A1E955E18006AE7F5 /* RunViewController.swift in Sources */,
 				89C4C3B41EB900350054D5EF /* RunManager.swift in Sources */,
