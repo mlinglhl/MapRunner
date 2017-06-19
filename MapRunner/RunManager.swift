@@ -128,7 +128,9 @@ extension RunManager {
         settings.countDownMode = true
         
         updateTime(timeInterval: timeInterval)
-        
+        if stopWatch.totalTime == 0 {
+            settings.countDownMode = false
+        }
     }
     
     func addTime(timeInterval: TimeInterval) {
