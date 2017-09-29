@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		89323E2D1F7DF14C0007DA34 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89323E2C1F7DF14C0007DA34 /* RecordsTableViewCell.swift */; };
+		89323E2F1F7DF1C90007DA34 /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89323E2E1F7DF1C90007DA34 /* RecordsViewController.swift */; };
 		8966BE831E94160B006AE7F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8966BE821E94160B006AE7F5 /* AppDelegate.swift */; };
 		8966BE881E94160B006AE7F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8966BE861E94160B006AE7F5 /* Main.storyboard */; };
 		8966BE8B1E94160B006AE7F5 /* MapRunner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8966BE891E94160B006AE7F5 /* MapRunner.xcdatamodeld */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		89323E2C1F7DF14C0007DA34 /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewCell.swift; sourceTree = "<group>"; };
+		89323E2E1F7DF1C90007DA34 /* RecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
 		8966BE7F1E94160B006AE7F5 /* MapRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8966BE821E94160B006AE7F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8966BE871E94160B006AE7F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -89,6 +93,8 @@
 				89C4C3B31EB900350054D5EF /* RunManager.swift */,
 				8966BEA01E96B20D006AE7F5 /* PageViewController.swift */,
 				8966BEA61E96CA99006AE7F5 /* SetUpViewController.swift */,
+				89323E2E1F7DF1C90007DA34 /* RecordsViewController.swift */,
+				89323E2C1F7DF14C0007DA34 /* RecordsTableViewCell.swift */,
 				8966BE861E94160B006AE7F5 /* Main.storyboard */,
 				8966BE9E1E96A778006AE7F5 /* Extensions.swift */,
 				8966BE9B1E9560E0006AE7F5 /* ResultsViewController.swift */,
@@ -184,10 +190,12 @@
 				8966BE8B1E94160B006AE7F5 /* MapRunner.xcdatamodeld in Sources */,
 				8966BEA11E96B20D006AE7F5 /* PageViewController.swift in Sources */,
 				8997568E1EF769110070E690 /* Protocols.swift in Sources */,
+				89323E2D1F7DF14C0007DA34 /* RecordsTableViewCell.swift in Sources */,
 				8966BEA71E96CA99006AE7F5 /* SetUpViewController.swift in Sources */,
 				8966BE9A1E955E18006AE7F5 /* RunViewController.swift in Sources */,
 				89C4C3B41EB900350054D5EF /* RunManager.swift in Sources */,
 				8966BE9C1E9560E0006AE7F5 /* ResultsViewController.swift in Sources */,
+				89323E2F1F7DF1C90007DA34 /* RecordsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

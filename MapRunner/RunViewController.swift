@@ -60,7 +60,7 @@ class RunViewController: UIViewController, UIGestureRecognizerDelegate, StopTime
             stopTimer()
             return
         }
-        start()
+        startTimer()
     }
     
     func stopTimer() {
@@ -69,7 +69,7 @@ class RunViewController: UIViewController, UIGestureRecognizerDelegate, StopTime
         timer = nil
     }
     
-    func start() {
+    func startTimer() {
         runManager.startRun()
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(RunViewController.updateTimerLabel), userInfo: nil, repeats: true)
     }
