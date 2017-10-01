@@ -42,12 +42,6 @@
 		8966BEAA1E9838C7006AE7F5 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		8997568D1EF769110070E690 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		89C4C3B31EB900350054D5EF /* RunManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunManager.swift; sourceTree = "<group>"; };
-		89C4C3C11EBA46140054D5EF /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
-		89C4C3C21EBA46140054D5EF /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		89C4C3C31EBA46140054D5EF /* Run+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Run+CoreDataClass.swift"; sourceTree = "<group>"; };
-		89C4C3C41EBA46140054D5EF /* Run+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Run+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		89C4C3CD1EBA48920054D5EF /* Session+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Session+CoreDataClass.swift"; sourceTree = "<group>"; };
-		89C4C3CE1EBA48920054D5EF /* Session+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Session+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,12 +58,6 @@
 		8966BE761E94160B006AE7F5 = {
 			isa = PBXGroup;
 			children = (
-				89C4C3CD1EBA48920054D5EF /* Session+CoreDataClass.swift */,
-				89C4C3CE1EBA48920054D5EF /* Session+CoreDataProperties.swift */,
-				89C4C3C11EBA46140054D5EF /* Location+CoreDataClass.swift */,
-				89C4C3C21EBA46140054D5EF /* Location+CoreDataProperties.swift */,
-				89C4C3C31EBA46140054D5EF /* Run+CoreDataClass.swift */,
-				89C4C3C41EBA46140054D5EF /* Run+CoreDataProperties.swift */,
 				8966BE811E94160B006AE7F5 /* MapRunner */,
 				8966BE801E94160B006AE7F5 /* Products */,
 			);

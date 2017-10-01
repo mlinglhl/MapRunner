@@ -55,4 +55,14 @@ class DataManager: NSObject {
         let session = NSEntityDescription.insertNewObject(forEntityName: "Session", into: getContext()) as! Session
         return session
     }
+    
+    func fetchSessions() -> [Session] {
+        let request = NSFetchRequest<Session>(entityName: "Session")
+        do {
+            let objectArray = try persistentContainer.viewContext.fetch(request)
+            return objectArray
+        } catch {
+            return [Session]()
+        }
+    }
 }

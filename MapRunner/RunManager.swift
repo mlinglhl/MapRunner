@@ -100,7 +100,9 @@ class RunManager: NSObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if locations.count > 0 {
-            addLocation(locations.last!)
+            for location in locations {
+                addLocation(location)
+            }
         }
     }
     
